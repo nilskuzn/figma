@@ -18,8 +18,26 @@ html, body {
 .centered-text {
   width: 80%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
-  
+  text-align: center;
+  background-color: #00ff00;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
