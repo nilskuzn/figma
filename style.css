@@ -18,6 +18,13 @@ html, body {
 }
 
 
+.main-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
 .centered-text {
   width: 80%;
   max-width: 1400px;
