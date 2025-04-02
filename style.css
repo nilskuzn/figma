@@ -6,6 +6,7 @@ html, body {
   padding: 0;
 }
 
+
 .moving-text {
   position: absolute;
   font-size: 24px;
@@ -13,9 +14,12 @@ html, body {
   animation: moveText 5s linear infinite;
 }
 
+
 .centered-text {
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  
 }
+
