@@ -1,9 +1,12 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 
@@ -27,12 +30,16 @@ html, body {
 h1 {
   font-size: 48px;
   margin-bottom: 30px;
+  font-weight: 700;
+  font-family: 'Gothic', Arial, sans-serif;
 }
 
 h2 {
   font-size: 24px;
   margin: 15px 0;
   cursor: pointer;
+  font-weight: 400;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 nav {
