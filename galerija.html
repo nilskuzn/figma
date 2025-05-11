@@ -48,61 +48,119 @@
         <a class="active" href="galerija.html">Galerija</a>
         <a href="login.html">Login</a>
       </div>
+      
+      <h2>Mūsu produkti</h2>
 <body>
   
     
   </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu1.png">
-      <img src="foto/cpu1.png" width="200">
-      </a>
+      <img src="foto/cpu1.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu2.png">
-      <img src="foto/cpu2.png" width="200">
-      </a>
+      <img src="foto/cpu2.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu3.png">
-      <img src="foto/cpu3.png" width="200">
-      </a>
+      <img src="foto/cpu3.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu4.png">
-      <img src="foto/cpu4.png" width="200">
-      </a>
+      <img src="foto/cpu4.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu5.png">
-      <img src="foto/cpu5.png" width="200">
-      </a>
+      <img src="foto/cpu5.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu6.png">
-      <img src="foto/cpu6.png" width="200">
-      </a>
+      <img src="foto/cpu6.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu7.png">
-      <img src="foto/cpu7.png" width="200">
-      </a>
+      <img src="foto/cpu7.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu8.png">
-      <img src="foto/cpu8.png" width="200">
-      </a>
+      <img src="foto/cpu8.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu9.png">
-      <img src="foto/cpu9.png" width="200">
-      </a>
+      <img src="foto/cpu9.png">
     </div>
     <div class="gallery">
-      <a target="_blank" href="foto/cpu10.png">
-      <img src="foto/cpu10.png" width="200"
-        >
-      </a>
+      <img src="foto/cpu10.png">
     </div>
+    <div class="gallery video-gallery">
+      <img src="https://img.youtube.com/vi/ELjMsNn1WmY/maxresdefault.jpg" data-video-id="ELjMsNn1WmY">
+    </div>
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+    <img class="modal-content" id="modalImg">
+    <div class="image-counter"></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const images = document.querySelectorAll(".gallery img");
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        currentIndex = index;
+        updateCounter();
+      }
+    });
+
+    function updateCounter() {
+      document.querySelector('.image-counter').textContent = `Image ${currentIndex + 1} of ${images.length}`;
+    }
+
+    document.querySelector(".close").onclick = function() {
+      modal.style.display = "none";
+    }
+
+    document.querySelector(".prev").onclick = function() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+      updateCounter();
+    }
+
+    document.querySelector(".next").onclick = function() {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+      updateCounter();
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Video handling
+    const videoGallery = document.querySelector('.video-gallery img');
+    videoGallery.onclick = function() {
+      const videoId = this.getAttribute('data-video-id');
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      videoContainer.innerHTML = `
+        <span class="close-video">&times;</span>
+        <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen></iframe>`;
+      document.body.appendChild(videoContainer);
+
+      const closeVideo = videoContainer.querySelector('.close-video');
+      closeVideo.onclick = function() {
+        document.body.removeChild(videoContainer);
+      };
+
+      videoContainer.onclick = function(e) {
+        if (e.target === videoContainer || e.target === closeVideo) {
+          document.body.removeChild(videoContainer);
+        }
+      };
+    };
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
