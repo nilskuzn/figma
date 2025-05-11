@@ -82,6 +82,9 @@
     <div class="gallery">
       <img src="foto/cpu10.png">
     </div>
+    <div class="gallery video-gallery">
+      <img src="https://img.youtube.com/vi/ELjMsNn1WmY/maxresdefault.jpg" data-video-id="ELjMsNn1WmY">
+    </div>
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <span class="prev">&#10094;</span>
@@ -130,6 +133,25 @@
         modal.style.display = "none";
       }
     }
+
+    // Video handling
+    const videoGallery = document.querySelector('.video-gallery img');
+    videoGallery.onclick = function() {
+      const videoId = this.getAttribute('data-video-id');
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      videoContainer.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen></iframe>`;
+      document.body.appendChild(videoContainer);
+
+      videoContainer.onclick = function(e) {
+        if (e.target === videoContainer) {
+          document.body.removeChild(videoContainer);
+        }
+      };
+    };
   </script>
   <script src="script.js"></script>
 </body>
