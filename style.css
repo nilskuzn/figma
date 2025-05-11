@@ -175,3 +175,18 @@ h2:hover {
   height: 100%;
   border: none;
 }
+
+.video-container .close-video {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.video-container .close-video:hover {
+  color: #bbb;
+}

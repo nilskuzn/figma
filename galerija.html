@@ -141,13 +141,19 @@
       const videoContainer = document.createElement('div');
       videoContainer.className = 'video-container';
       videoContainer.innerHTML = `
+        <span class="close-video">&times;</span>
         <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
                 allow="autoplay; encrypted-media" 
                 allowfullscreen></iframe>`;
       document.body.appendChild(videoContainer);
 
+      const closeVideo = videoContainer.querySelector('.close-video');
+      closeVideo.onclick = function() {
+        document.body.removeChild(videoContainer);
+      };
+
       videoContainer.onclick = function(e) {
-        if (e.target === videoContainer) {
+        if (e.target === videoContainer || e.target === closeVideo) {
           document.body.removeChild(videoContainer);
         }
       };
