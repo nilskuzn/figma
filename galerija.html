@@ -87,6 +87,7 @@
     <span class="prev">&#10094;</span>
     <span class="next">&#10095;</span>
     <img class="modal-content" id="modalImg">
+    <div class="image-counter"></div>
   </div>
 
   <script>
@@ -100,8 +101,13 @@
         modal.style.display = "block";
         modalImg.src = this.src;
         currentIndex = index;
+        updateCounter();
       }
     });
+
+    function updateCounter() {
+      document.querySelector('.image-counter').textContent = `Image ${currentIndex + 1} of ${images.length}`;
+    }
 
     document.querySelector(".close").onclick = function() {
       modal.style.display = "none";
@@ -110,11 +116,13 @@
     document.querySelector(".prev").onclick = function() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       modalImg.src = images[currentIndex].src;
+      updateCounter();
     }
 
     document.querySelector(".next").onclick = function() {
       currentIndex = (currentIndex + 1) % images.length;
       modalImg.src = images[currentIndex].src;
+      updateCounter();
     }
 
     window.onclick = function(event) {
