@@ -83,4 +83,63 @@ h2:hover {
 
 .gallery img:hover {
   transform: scale(1.1);
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 3px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 35px;
+}
+
+.prev {
+  left: 35px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
